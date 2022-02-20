@@ -1,3 +1,5 @@
+// variables from Html
+
 const users = document.getElementById('users')
 const userInfo = document.getElementById('user-info')
 
@@ -19,9 +21,10 @@ const userBs = document.getElementById('bs')
 const userCatch = document.getElementById('catch-phrase')
 const userPosts = document.getElementById('posts')
 
-
+// url search variable
 const urlParams = new URLSearchParams(window.location.search)
-// console.log(userPhone);
+
+// jsonplaceholder fetch funtion wich get user data
 
 function getUsers() {
     fetch('https://jsonplaceholder.typicode.com/users')
@@ -37,6 +40,8 @@ function getUsers() {
         })
     })
 }
+
+// function wich get user info an append in html
 
 function getUserInfo (){
     fetch('https://jsonplaceholder.typicode.com/users/'+ urlParams.get('id'))
@@ -59,6 +64,7 @@ function getUserInfo (){
     })
 }
 
+// function wich get all user posts
 
 function getPosts(){
     fetch('https://jsonplaceholder.typicode.com/posts')
@@ -86,7 +92,7 @@ function getPosts(){
    
 }
 
-
+//  switch operator wich declare functions via html pages 
 switch (window.location.pathname) {       
     case '/user':
         getUserInfo()
