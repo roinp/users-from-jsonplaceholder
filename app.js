@@ -1,5 +1,4 @@
-// variables from Html
-
+// store all necessary html elements into variables to change their texts in future
 const users = document.getElementById("users");
 const userInfo = document.getElementById("user-info");
 
@@ -22,11 +21,11 @@ const userCatch = document.getElementById("catch-phrase");
 const userPosts = document.getElementById("posts");
 const userPostsButton = document.getElementById("post-btn");
 
-// url search variable
+// url query string as an object
 const urlParams = new URLSearchParams(window.location.search);
 
-// jsonplaceholder fetch funtion wich get user data
 
+// get user data and populate main page
 function getUsers() {
   fetch("https://jsonplaceholder.typicode.com/users")
     .then((res) => res.json())
@@ -41,8 +40,7 @@ function getUsers() {
     });
 }
 
-// function wich get user info an append in html
-
+// get user info an populate user page
 function getUserInfo() {
   fetch("https://jsonplaceholder.typicode.com/users/" + urlParams.get("id"))
     .then((res) => res.json())
@@ -65,8 +63,7 @@ function getUserInfo() {
     });
 }
 
-// function wich get all user posts
-
+// get all posts of the user and populate the page
 function getPosts() {
   fetch(
     "https://jsonplaceholder.typicode.com/users/" +
@@ -96,7 +93,7 @@ function getPosts() {
     });
 }
 
-//  switch operator wich declare functions via html pages
+//detect a page and run related function to populate it with a data
 switch (window.location.pathname) {
   case "/user":
     getUserInfo();
